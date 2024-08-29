@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    h2{
+      text-align: center;
+      font-size: xx-large;
+    }
+    h3 {
+      text-align: center;
+      font-size: 100px;
+    }
+    button{
+      font-size: 20px;
+    }
+
+    .box {
+      display: flex;
+      width: 400px;
+      margin: 5px auto;
+
+      justify-content: space-around;
+    }
+
+    .big {
+      margin: 0 auto;
+      width: 400px;
+      border: 2px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>抽奖</h2>
+  <br>
+  <div class="big">
+    <h3>???</h3>
+    <div class="box">
+      <button class="start">开始</button>
+      <button class="over">结束</button>
+    </div>
+  </div>
+  
+  <script>
+    let data = [
+    '洪英展','欧阳鸿琛','王子非','张嘉煜','陈曦','李泽东','区家荣','石广超','冯美玲','简汭','龙澄','徐诗仪','何思颖','林栩彤','方锐杰','傅可鑫','牛子曰','詹邦权','池胤延','刘汝宁','苏明校','肖佳新','彭健科','翁达','边缘','胡英浩','丁灏','刘奕辰','王宇','杨文炯','刘玮霖'
+    ]
+    const h3 = document.querySelector('h3')
+    const button1 = document.querySelector('.start')
+    const button2 = document.querySelector('.over')
+    let num = 0
+    let random = 0
+    button1.addEventListener('click', function () {
+      num = setInterval(function () {
+        random = Math.floor(Math.random() * data.length)
+        h3.innerHTML = data[random]
+      }, 1)
+    })
+    button2.addEventListener('click', function () {
+      clearInterval(num)
+      data.splice(random, 1)
+    })
+
+
+  </script>
+</body>
+
+</html>
